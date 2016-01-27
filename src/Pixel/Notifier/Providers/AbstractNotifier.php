@@ -1,6 +1,6 @@
 <?php
 
-namespace Pixel\Notifier\Provider;
+namespace Pixel\Notifier\Providers;
 
 abstract class AbstractNotifier
 {

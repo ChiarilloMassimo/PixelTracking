@@ -10,11 +10,14 @@ use Pixel\Notifier\AbstractNotifier;
  */
 class Notifier
 {
+    /**
+     * @var AbstractNotifier[] $providers
+     */
     protected $providers;
 
     /**
      * Notifier constructor.
-     * @param array $providers
+     * @param array AbstractNotifier[] $providers
      */
     public function __construct(array $providers)
     {
