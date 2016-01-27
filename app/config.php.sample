@@ -1,0 +1,21 @@
+<?php
+
+require (__DIR__ . '/../vendor/autoload.php');
+
+use Pixel\Controller\ImageController;
+use Pixel\Notifier\Provider\PushOver;
+
+$parameters = [
+    '_controllers' => [
+        'image_controller' => ImageController::class
+    ],
+    '_notifier' => [
+        'push_over' => [
+            PushOver::class,
+            [
+                'user_key',
+                'api_key'
+            ]
+        ]
+    ]
+];
