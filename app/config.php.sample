@@ -3,6 +3,7 @@
 require (__DIR__ . '/../vendor/autoload.php');
 
 define('APP_NAME', 'PixelTracking');
+define('APP_KEY', 'app_key');
 
 use Pixel\Controller\ImageController;
 use Pixel\Notifier\Providers\PushOver;
@@ -15,8 +16,8 @@ $config = [
         'push_over' => [
             'class' => PushOver::class,
             'arguments' => [
-                'user_key' => 'your user key',
-                'app_key'  => 'your app key'
+                'user_key' => 'user_key',
+                'app_key'  => 'app_key'
             ],
             'tags' => [
                 'notifier' => []

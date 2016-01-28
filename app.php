@@ -3,9 +3,9 @@
 require (__DIR__ . '/app/config.php');
 
 use FastRoute\Dispatcher;
-use Symfony\Component\HttpFoundation\Response;
 use Pixel\ContainerBuilder;
 use Pixel\Notifier\Notifier;
+use Pixel\Controller\BaseController;
 
 $container = (new ContainerBuilder($config))->compile();
 
@@ -33,14 +33,14 @@ $routeInfo = $dispatcher->dispatch(
 );
 
 if (reset($routeInfo) !== Dispatcher::FOUND) {
-    return Response::create('Not found', 404)->send();
+    return BaseController::createNotFoundResponse();
 }
 
 $controller = $routeInfo[1];
 $parameters = $routeInfo[2];
 
 if (!$container->has($controller)) {
-    return Response::create('Not found', 404)->send();
+    return BaseController::createNotFoundResponse();
 }
 
 return $container->get($controller)

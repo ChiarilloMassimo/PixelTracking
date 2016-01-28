@@ -19,4 +19,4 @@ Run
 
 Test
 
-`curl http://localhost:8080/?object=Test`
+`curl http://localhost:8080/?object=Test&key=your_key`

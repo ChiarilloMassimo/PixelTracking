@@ -5,7 +5,7 @@ namespace Pixel\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Pixel\Notifier\Notifier;
 
-class ImageController extends AbstractController
+class ImageController extends BaseController implements ControllerInterface
 {
     /**
      * @param array $parameters
@@ -14,6 +14,10 @@ class ImageController extends AbstractController
      */
     public function handle(array $parameters, Notifier $notifier = null)
     {
+        if (!$this->isValidRequest()) {
+            return $this->createAccessDeniedResponse();
+        }
+
         if ($notifier) {
             $notifier->notify(
                 sprintf(
