@@ -16,7 +16,6 @@ Run
 
 `php -S localhost:8080 app.php`
 
-
 Test
 
 `curl http://localhost:8080/?object=Test&key=your_key`
